@@ -17,31 +17,31 @@ import numpy as np
 feature_dir   = pathlib.Path('/media/Data/FYS_3023/Sentinel-1/features').absolute()
 
 # select S1 product
-S1_base = 'S1A_EW_GRDM_1SDH_20240729T175706_20240729T175756_054979_06B293_FD70'
+S1_base = 'S1A_EW_GRDM_1SDH_20240808T064809_20240808T064913_055118_06B761_66C0'
 
 
 # In[3]:
 
 
 # build path to intensity imaage files
-HH_path    = feature_dir / S1_base / 'Sigma0_HH.img'
-HV_path    = feature_dir / S1_base / 'Sigma0_HV.img'
+HH_path    = feature_dir / S1_base / 'Sigma0_HH_db.img'
+HV_path    = feature_dir / S1_base / 'Sigma0_HV_db.img'
 
 
 # In[4]:
 
 
 # read intensities
-HH = gdal.Open(HH_path.as_posix()).ReadAsArray()
-HV = gdal.Open(HV_path.as_posix()).ReadAsArray()
+HH_dB = gdal.Open(HH_path.as_posix()).ReadAsArray()
+HV_dB = gdal.Open(HV_path.as_posix()).ReadAsArray()
 
 
 # In[5]:
 
 
 # dB conversion
-HH_dB    = 10*np.log10(HH)
-HV_dB    = 10*np.log10(HV)
+##HH_dB    = 10*np.log10(HH)
+##HV_dB    = 10*np.log10(HV)
 
 
 # In[6]:
